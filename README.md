@@ -1,2 +1,1 @@
-# YFSMM-IOS-NEW
-大兵哥-新版YFSMM
+#YFSMM
