@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		22D349151F5F9F5600904538 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D349141F5F9F5600904538 /* NetWork.m */; };
 		22DD6E171F5D5424000525BB /* BubbleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DD6E161F5D5424000525BB /* BubbleAnimation.m */; };
+		36CFC0681F66CEE000C0497F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFC0661F66CEE000C0497F /* ResultViewController.swift */; };
+		36CFC0691F66CEE000C0497F /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CFC0671F66CEE000C0497F /* ResultViewController.xib */; };
 		5202F0012213DB7C38F79DA3 /* Pods_YFSMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058099E812B97FB4BC9FB481 /* Pods_YFSMM.framework */; };
 		E10BE8671EF4E18E002436C4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10BE8661EF4E18E002436C4 /* HomeVC.swift */; };
 		E10BE86F1EF507F8002436C4 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10BE86E1EF507F8002436C4 /* ChartVC.swift */; };
@@ -90,6 +92,8 @@
 		22DD6E151F5D5424000525BB /* BubbleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleAnimation.h; sourceTree = "<group>"; };
 		22DD6E161F5D5424000525BB /* BubbleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnimation.m; sourceTree = "<group>"; };
 		27B887C48C9208C0D9B88672 /* Pods-YFSMM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFSMM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YFSMM/Pods-YFSMM.debug.xcconfig"; sourceTree = "<group>"; };
+		36CFC0661F66CEE000C0497F /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		36CFC0671F66CEE000C0497F /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		41603A0FF40ED372EB812280 /* Pods-YFSMM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFSMM.release.xcconfig"; path = "Pods/Target Support Files/Pods-YFSMM/Pods-YFSMM.release.xcconfig"; sourceTree = "<group>"; };
 		E10BE8661EF4E18E002436C4 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E10BE86E1EF507F8002436C4 /* ChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 			children = (
 				E115AEEE1F3B10D200E4FDD3 /* Views */,
 				E10BE8661EF4E18E002436C4 /* HomeVC.swift */,
+				36CFC0661F66CEE000C0497F /* ResultViewController.swift */,
+				36CFC0671F66CEE000C0497F /* ResultViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -593,7 +599,7 @@
 				TargetAttributes = {
 					E16758D91EF4128400C701C4 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 7JTKWL4XKW;
+						DevelopmentTeam = HR6HGC9SU2;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -628,6 +634,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E169990F1F4722C30088D136 /* h5 in Resources */,
+				36CFC0691F66CEE000C0497F /* ResultViewController.xib in Resources */,
 				E115AEF21F3B111F00E4FDD3 /* SearchDeviceView.xib in Resources */,
 				E16758E81EF4128400C701C4 /* LaunchScreen.storyboard in Resources */,
 				E16758E51EF4128400C701C4 /* Assets.xcassets in Resources */,
@@ -710,7 +717,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -769,6 +776,7 @@
 				E115AEA71F3B064D00E4FDD3 /* BabyOptions.m in Sources */,
 				E167594B1EF4177A00C701C4 /* UITableView+AddOn.swift in Sources */,
 				E16759491EF4177A00C701C4 /* UIImage+AddOn.swift in Sources */,
+				36CFC0681F66CEE000C0497F /* ResultViewController.swift in Sources */,
 				E167591F1EF4173400C701C4 /* NavigationManager.swift in Sources */,
 				E1675A961EF41FF200C701C4 /* LoginVC.swift in Sources */,
 				E115AEF01F3B111400E4FDD3 /* SearchDeviceView.swift in Sources */,
@@ -912,7 +920,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YFSMM/YFSMM.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7JTKWL4XKW;
+				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -938,7 +946,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = YFSMM/YFSMM.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7JTKWL4XKW;
+				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -108,13 +108,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         let stallsNum:Float = self.fuduSlider.maximumValue / Float(16)
         fuduSlider.value = 1 * stallsNum  //设置初始值
     
-        
-        
-        
-        
-        
-        
-        
+    
         self.stallsLabel.text = "\(Int(self.fuduSlider.value / stallsNum))"
         
         fuduSlider.addTarget(self, action: #selector(self.sliderValueChanged), for: UIControlEvents.valueChanged)
@@ -485,6 +479,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         let daojishi = "\(xiaoshi)\(fenzhong):\(miao)"
         
         
+        
+        
         if daojishi == "00:1" {
             
             //MARK:结束气泡动画
@@ -509,14 +505,15 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             oil2Value = self.youfenValue;
             water2Value = self.shuifenValue;
             
-            var waterUp = String(water2Value - water1Value);
+            //var waterUp = String(water2Value - water1Value);
             
-            waterUp = "本次美颜结束，水份提升"+waterUp+"%，水嫩嫩的。"
+            let resultVC = ResultViewController();
+            self.present(resultVC, animated: true, completion: nil);
             
-            let alertviw = UIAlertView(title: "提示", message:waterUp, delegate: nil, cancelButtonTitle: "确认")
-            alertviw.show();
-            
-            
+//            waterUp = "本次美颜结束，水份提升"+waterUp+"%，水嫩嫩的。"
+//            
+//            let alertviw = UIAlertView(title: "提示", message:waterUp, delegate: nil, cancelButtonTitle: "确认")
+//            alertviw.show();
         }
             //开始使用面膜机
         else if daojishi == "011:59"{
