@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		22D349151F5F9F5600904538 /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D349141F5F9F5600904538 /* NetWork.m */; };
 		22DD6E171F5D5424000525BB /* BubbleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DD6E161F5D5424000525BB /* BubbleAnimation.m */; };
+		36368DD41F67B23100067CA8 /* m1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36368DD11F67B23100067CA8 /* m1.mp3 */; };
+		36368DD51F67B23100067CA8 /* m2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36368DD21F67B23100067CA8 /* m2.mp3 */; };
+		36368DD61F67B23100067CA8 /* m3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 36368DD31F67B23100067CA8 /* m3.mp3 */; };
 		36CFC0681F66CEE000C0497F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFC0661F66CEE000C0497F /* ResultViewController.swift */; };
 		36CFC0691F66CEE000C0497F /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36CFC0671F66CEE000C0497F /* ResultViewController.xib */; };
 		5202F0012213DB7C38F79DA3 /* Pods_YFSMM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058099E812B97FB4BC9FB481 /* Pods_YFSMM.framework */; };
@@ -92,6 +95,9 @@
 		22DD6E151F5D5424000525BB /* BubbleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleAnimation.h; sourceTree = "<group>"; };
 		22DD6E161F5D5424000525BB /* BubbleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleAnimation.m; sourceTree = "<group>"; };
 		27B887C48C9208C0D9B88672 /* Pods-YFSMM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFSMM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YFSMM/Pods-YFSMM.debug.xcconfig"; sourceTree = "<group>"; };
+		36368DD11F67B23100067CA8 /* m1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m1.mp3; sourceTree = "<group>"; };
+		36368DD21F67B23100067CA8 /* m2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m2.mp3; sourceTree = "<group>"; };
+		36368DD31F67B23100067CA8 /* m3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = m3.mp3; sourceTree = "<group>"; };
 		36CFC0661F66CEE000C0497F /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		36CFC0671F66CEE000C0497F /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		41603A0FF40ED372EB812280 /* Pods-YFSMM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YFSMM.release.xcconfig"; path = "Pods/Target Support Files/Pods-YFSMM/Pods-YFSMM.release.xcconfig"; sourceTree = "<group>"; };
@@ -341,6 +347,9 @@
 				E16758DD1EF4128400C701C4 /* AppDelegate.swift */,
 				E16758DF1EF4128400C701C4 /* ViewController.swift */,
 				E16758E11EF4128400C701C4 /* Main.storyboard */,
+				36368DD11F67B23100067CA8 /* m1.mp3 */,
+				36368DD21F67B23100067CA8 /* m2.mp3 */,
+				36368DD31F67B23100067CA8 /* m3.mp3 */,
 				E16758E41EF4128400C701C4 /* Assets.xcassets */,
 				E16758E61EF4128400C701C4 /* LaunchScreen.storyboard */,
 				E16758E91EF4128400C701C4 /* Info.plist */,
@@ -636,9 +645,12 @@
 				E169990F1F4722C30088D136 /* h5 in Resources */,
 				36CFC0691F66CEE000C0497F /* ResultViewController.xib in Resources */,
 				E115AEF21F3B111F00E4FDD3 /* SearchDeviceView.xib in Resources */,
+				36368DD51F67B23100067CA8 /* m2.mp3 in Resources */,
 				E16758E81EF4128400C701C4 /* LaunchScreen.storyboard in Resources */,
 				E16758E51EF4128400C701C4 /* Assets.xcassets in Resources */,
+				36368DD41F67B23100067CA8 /* m1.mp3 in Resources */,
 				E16758E31EF4128400C701C4 /* Main.storyboard in Resources */,
+				36368DD61F67B23100067CA8 /* m3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

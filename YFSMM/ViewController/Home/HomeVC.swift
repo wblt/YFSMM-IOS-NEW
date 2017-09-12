@@ -10,6 +10,7 @@ import UIKit
 //import BabyBluetooth
 import LKDBHelper
 import CryptoSwift
+import AVFoundation
 
 class BlueToothEntity: NSObject {
     var peripheral: CBPeripheral?
@@ -71,6 +72,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
     fileprivate var shuifenValue:Int! = 0
     fileprivate var youfenValue:Int! = 0
     
+    var audioPlayer: AVAudioPlayer?
+    var musicArr:Array<String> = []
+    var musicStatus:UInt8 = 0;
+    
+
+    
     fileprivate lazy var searchView: SearchDeviceView = {
         let popView = Bundle.main.loadNibNamed("SearchDeviceView", owner: nil, options: nil)?.first as! SearchDeviceView
         popView.delegate = self
@@ -121,13 +128,25 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
 
         
        // self.startAnimation()
+        let path1 = Bundle.main.path(forResource: "m1", ofType: "mp3")
+        let path2 = Bundle.main.path(forResource: "m2", ofType: "mp3")
+        let path3 = Bundle.main.path(forResource: "m3", ofType: "mp3")
+        musicArr = Array<String>();
+        musicArr.append(path1!);
+        musicArr.append(path2!);
+        musicArr.append(path3!);
+        let pathURL:URL = URL(fileURLWithPath: musicArr[1])
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+        } catch {
+            audioPlayer = nil
+        }
 
         
         
     }
     
-    
-    
+
     //MARK:结束按钮的动画
     func stopAnimation() {
         self.connectView.isHidden = true
@@ -560,10 +579,30 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         
         print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
         self.setShuiAndYouProgress()
+        
+        if status != 0 && self.musicStatus != 0 {
+            // 播放音乐
+            self.playMusic(status: Int(status))
+        }
     }
     
-    
-    
+    // 播放音乐
+    func playMusic(status:Int) {
+        switch status {
+        case 1:
+            print("!!!!!!!!!--1----")
+            break
+        case 2:
+            print("!!!!!!!!!--2----")
+            break
+        case 3:
+            print("!!!!!!!!!--3----")
+            break
+        default: break
+        }
+        
+    }
+
     //MARK:设置状态动画
     
     func stopAllDeviceStatusAnimation() {
