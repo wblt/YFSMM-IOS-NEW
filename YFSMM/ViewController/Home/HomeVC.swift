@@ -480,9 +480,6 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         bubble.bubble_x = kScreenFrameW/2;
         bubble.bubble_y = self.startView.frame.origin.y;
         
-
-        
-        
         if status != 0 && deviceStatus != status {
             self.stopAllDeviceStatusAnimation()
             let time: TimeInterval = 0.8
@@ -495,12 +492,18 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         self.deviceStatus = status
         
         
+        if status != 0 && self.musicStatus != status {
+            // 播放音乐
+            self.playMusic(status: Int(status))
+        }
+        self.musicStatus = status;
+        
+        
         let daojishi = "\(xiaoshi)\(fenzhong):\(miao)"
         
-        
-        
-        
         if daojishi == "00:1" {
+            
+            self.musicStatus = 0
             
             //MARK:结束气泡动画
             bubble.stop_bubbleAnimation();
@@ -579,11 +582,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         
         print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
         self.setShuiAndYouProgress()
-        
-        if status != 0 && self.musicStatus != 0 {
-            // 播放音乐
-            self.playMusic(status: Int(status))
-        }
+    
     }
     
     // 播放音乐
@@ -591,12 +590,38 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         switch status {
         case 1:
             print("!!!!!!!!!--1----")
+            let pathURL:URL = URL(fileURLWithPath: musicArr[0])
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+            } catch {
+                audioPlayer = nil
+            }
+            audioPlayer?.play()
+            
+            
+            
             break
         case 2:
             print("!!!!!!!!!--2----")
+            
+            let pathURL:URL = URL(fileURLWithPath: musicArr[1])
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+            } catch {
+                audioPlayer = nil
+            }
+            audioPlayer?.play()
             break
         case 3:
             print("!!!!!!!!!--3----")
+            
+            let pathURL:URL = URL(fileURLWithPath: musicArr[2])
+            do {
+                try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+            } catch {
+                audioPlayer = nil
+            }
+            audioPlayer?.play()
             break
         default: break
         }
