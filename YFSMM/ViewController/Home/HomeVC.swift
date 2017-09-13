@@ -49,6 +49,10 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
     @IBOutlet weak var youfenBGV: UIButton!
     @IBOutlet weak var shuifenBGV: UIButton!
     @IBOutlet weak var startView: UIView!
+    
+    @IBOutlet weak var device_name: UILabel!
+    
+    
     fileprivate var angle:CGFloat = 0
     fileprivate var hasSerch:Bool = false //用户主动搜索设备
     fileprivate var hasPopView:Bool = false
@@ -109,6 +113,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         // Do any additional setup after loading the view.
         self.title = "智慧面膜"
         
+        device_name.text = ""
         daojishiLabel.text = ""
         fuduSlider.minimumValue = 0// 设置最小值
         fuduSlider.maximumValue = 255// 设置最大值
@@ -497,6 +502,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             
         }
         self.deviceStatus = status
+        
+        if currPeripheral != nil {
+            self.device_name.text = currPeripheral.identifier.uuidString.components(separatedBy: "-")[0]
+        } else {
+            self.device_name.text = ""
+        }
         
         print("dddddd你好---------------------------")
         

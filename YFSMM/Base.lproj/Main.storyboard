@@ -227,8 +227,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33333" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqQ-1F-1hv">
+                                <rect key="frame" x="162" y="88" width="51.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HqQ-1F-1hv" firstAttribute="top" secondItem="bNc-om-wbE" secondAttribute="bottom" constant="24" id="VLw-VJ-6n6"/>
+                            <constraint firstItem="HqQ-1F-1hv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vzS-XL-mOf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jiI-3A-bhQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uv9-yC-237">
@@ -241,6 +251,7 @@
                         <outlet property="connectBtn" destination="mNa-Bm-LTw" id="X2f-QO-ZoI"/>
                         <outlet property="connectView" destination="Khf-Rp-RlR" id="Slw-u3-MTj"/>
                         <outlet property="daojishiLabel" destination="W5t-wa-bhO" id="ZpV-6K-jQp"/>
+                        <outlet property="device_name" destination="HqQ-1F-1hv" id="dIn-o8-maH"/>
                         <outlet property="fuduSlider" destination="ObN-fg-BJL" id="RDB-Ia-Zzi"/>
                         <outlet property="shuifenBGV" destination="kQd-XI-Fb7" id="gFU-qv-AgQ"/>
                         <outlet property="shuifenIMGV" destination="WL7-Rn-3eC" id="rT9-EH-HVJ"/>
@@ -292,7 +303,7 @@
                 <navigationController id="uim-tR-K7t" customClass="BaseNavC" customModule="YFSMM" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Ln-pq-7IK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Ln-pq-7IK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
