@@ -36,14 +36,16 @@ class ResultViewController: BaseVC {
         
         oile.text = "\(oi)";
         
-        let jin:UInt32 = (arc4random_uniform(max - min) + min)
+        let tanmax: UInt32 = 6
+        let tanmin: UInt32 = 2
+        let jin:UInt32 = (arc4random_uniform(tanmax - tanmin) + tanmin)
         jinzhi.text = "\(jin)";
         
-        let tan:UInt32 = (arc4random_uniform(max - min) + min)
+        let tan:UInt32 = (arc4random_uniform(tanmax - tanmin) + tanmin)
         tanxin.text = "\(tan)";
         
         let sum:UInt32 = water + oi + jin + tan
-        resultContent.text = "\(sum)";
+        resultContent.text = "颜值上升约"+"\(sum)";
     }
 
     override func didReceiveMemoryWarning() {

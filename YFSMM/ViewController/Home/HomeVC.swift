@@ -33,7 +33,7 @@ var oil2Value = 0;
 var water1Value = 0;
 var water2Value = 0;
 
-class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
+class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayerDelegate {
     @IBOutlet weak var connectView: UIView!
     
     @IBOutlet var deviceBtns: [UIButton]!
@@ -128,6 +128,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
 
         
        // self.startAnimation()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            
+        }
         let path1 = Bundle.main.path(forResource: "m1", ofType: "mp3")
         let path2 = Bundle.main.path(forResource: "m2", ofType: "mp3")
         let path3 = Bundle.main.path(forResource: "m3", ofType: "mp3")
@@ -138,6 +144,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         let pathURL:URL = URL(fileURLWithPath: musicArr[1])
         do {
             try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+            audioPlayer?.delegate = self
         } catch {
             audioPlayer = nil
         }
@@ -491,6 +498,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         }
         self.deviceStatus = status
         
+        print("dddddd你好---------------------------")
+        
         
         if status != 0 && self.musicStatus != status {
             // 播放音乐
@@ -498,12 +507,21 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         }
         self.musicStatus = status;
         
+        // 拼接数据
+        var ss:String = "\(miao)"
+        if ss.length == 1 {
+            ss = "0"+ss;
+        }
         
-        let daojishi = "\(xiaoshi)\(fenzhong):\(miao)"
+        let daojishi = "\(xiaoshi)\(fenzhong):"+ss;
         
-        if daojishi == "00:1" {
+        if daojishi == "00:01" {
             
+            // 停止音乐
             self.musicStatus = 0
+            if (self.audioPlayer?.isPlaying)! {
+                self.audioPlayer?.stop();
+            }
             
             //MARK:结束气泡动画
             bubble.stop_bubbleAnimation();
@@ -555,7 +573,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             
             self.startLabel.text = "运行中"
              model.saveToDB()
-        }else if daojishi != "00:0" && fenzhong < 10  {
+        }else if daojishi != "00:00" && fenzhong < 10  {
             
             bubble.start_bubbleAnimation();
 
@@ -579,8 +597,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             
         }
         
-        
-        print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
+//        print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
+        print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时:"+daojishi)
         self.setShuiAndYouProgress()
     
     }
@@ -593,13 +611,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             let pathURL:URL = URL(fileURLWithPath: musicArr[0])
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+                audioPlayer?.delegate = self
             } catch {
                 audioPlayer = nil
             }
             audioPlayer?.play()
-            
-            
-            
+    
             break
         case 2:
             print("!!!!!!!!!--2----")
@@ -607,6 +624,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             let pathURL:URL = URL(fileURLWithPath: musicArr[1])
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+                audioPlayer?.delegate = self
             } catch {
                 audioPlayer = nil
             }
@@ -618,6 +636,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
             let pathURL:URL = URL(fileURLWithPath: musicArr[2])
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
+                audioPlayer?.delegate = self
             } catch {
                 audioPlayer = nil
             }
@@ -627,9 +646,14 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate {
         }
         
     }
-
-    //MARK:设置状态动画
     
+    // 播放完成代理方法
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        // 循环播放
+        playMusic(status: Int(self.musicStatus))
+    }
+    
+    //MARK:设置状态动画
     func stopAllDeviceStatusAnimation() {
         
         self.isStopAllDeviceStatusAnimation = true
