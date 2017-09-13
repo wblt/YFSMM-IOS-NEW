@@ -21,9 +21,12 @@ class ResultViewController: BaseVC {
     @IBOutlet weak var jinzhi: UILabel!
     
     @IBOutlet weak var tanxin: UILabel!
+    @IBOutlet weak var closeBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        closeBtn.setCornerBorderWithCornerRadii(self.closeBtn.frame.height / 2 , width: 1, color: UIColorHex("999999"))
 
         // Do any additional setup after loading the view.
         let max: UInt32 = 15
@@ -38,13 +41,24 @@ class ResultViewController: BaseVC {
         
         let tanmax: UInt32 = 6
         let tanmin: UInt32 = 2
-        let jin:UInt32 = (arc4random_uniform(tanmax - tanmin) + tanmin)
-        jinzhi.text = "\(jin)";
+        let jin:Float = (Float(arc4random_uniform(tanmax - tanmin) + tanmin))
         
-        let tan:UInt32 = (arc4random_uniform(tanmax - tanmin) + tanmin)
-        tanxin.text = "\(tan)";
+        let ss:Float = Float(arc4random() % 10)
+        let jinxiaoshu:Float = ss / 10;
+
+        let jinresult:Float = jin + jinxiaoshu;
+        jinzhi.text = "\(jinresult)";
         
-        let sum:UInt32 = water + oi + jin + tan
+        let tan:Float = (Float(arc4random_uniform(tanmax - tanmin) + tanmin))
+        let yy:Float = Float(arc4random() % 10)
+        let tanxiaoshu:Float = yy / 10;
+        let tanresult:Float = tan + tanxiaoshu;
+        tanxin.text = "\(tanresult)";
+        
+        let jinInt:UInt32 = UInt32(jin)
+        let tanInt:UInt32 = UInt32(tan)
+        
+        let sum:UInt32 = water + oi + jinInt + tanInt
         resultContent.text = "颜值上升约"+"\(sum)";
     }
 

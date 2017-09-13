@@ -500,6 +500,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         
         print("dddddd你好---------------------------")
         
+        print("identifier"+currPeripheral.identifier.uuidString + "name:"+currPeripheral.name)
+        
         
         if status != 0 && self.musicStatus != status {
             // 播放音乐
@@ -579,7 +581,13 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
 
             daojishiLabel.isHidden = false
             self.startLabel.text = "运行中"
-            daojishiLabel.text = "\(xiaoshi)\(fenzhong):\(miao)"
+            // 拼接数据
+            var bb:String = "\(miao)"
+            if bb.length == 1 {
+                bb = "0"+bb;
+            }
+//            daojishiLabel.text = "\(xiaoshi)\(fenzhong):\(miao)"
+            daojishiLabel.text = "\(xiaoshi)\(fenzhong):"+bb
             
         }else if fenzhong > 10{
             
@@ -587,7 +595,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
 
             self.startLabel.text = "运行中"
             daojishiLabel.isHidden = false
-            daojishiLabel.text = "\(fenzhong):\(miao)"
+            var bb:String = "\(miao)"
+            if bb.length == 1 {
+                bb = "0"+bb;
+            }
+//            daojishiLabel.text = "\(fenzhong):\(miao)"
+            daojishiLabel.text = "\(fenzhong):"+bb
         }
         else{
            

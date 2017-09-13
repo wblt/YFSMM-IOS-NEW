@@ -44,6 +44,7 @@ class SearchDeviceView: UIView,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         let peripheral = self.dataArray[indexPath.row]
+        print("名子："+peripheral.identifier.uuidString)
         cell?.textLabel?.text = peripheral.identifier.uuidString.components(separatedBy: "-")[0]
         return cell!
     }
