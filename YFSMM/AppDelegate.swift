@@ -69,7 +69,7 @@ import UIKit
             
             print("更新");
             
-            let urlString = "itms-apps://itunes.apple.com/app/id414478124"
+            let urlString = "itms-apps://itunes.apple.com/app/id1281243324"
             if let url = URL(string: urlString) {
                 //根据iOS系统版本，分别处理
                 if #available(iOS 10, *) {
