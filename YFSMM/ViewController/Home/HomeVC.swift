@@ -111,7 +111,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.title = "智慧面膜"
+        self.title = "智惠面膜"
         
         device_name.text = ""
         daojishiLabel.text = ""
