@@ -203,7 +203,50 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
     @IBAction func startClick(_ sender: Any) {
         if  self.deviceStatus == 0 {
             var data = Data()
-            let fudu = UInt8(self.fuduSlider.value)
+            var fudu = UInt8(self.fuduSlider.value)
+            
+            let stallsNum:Float = self.fuduSlider.maximumValue / Float(16)
+            self.fuduSlider.value = Float(Int(self.fuduSlider.value / stallsNum)) * stallsNum
+            
+            let ssssss:String = "\(Int(self.fuduSlider.value / stallsNum))"
+            print("档位值  "+ssssss)
+            if (ssssss.isEqual("1")){
+                fudu = 00;
+            } else if (ssssss.isEqual("2")){
+                fudu = 08;
+            } else if (ssssss.isEqual("3")){
+                fudu = 10;
+            } else if (ssssss.isEqual("4")){
+                fudu = 18;
+            } else if (ssssss.isEqual("5")){
+                fudu = 20;
+            } else if (ssssss.isEqual("6")){
+                fudu = 28;
+            } else if (ssssss.isEqual("7")){
+                fudu = 30;
+            } else if (ssssss.isEqual("8")){
+                fudu = 38;
+            } else if (ssssss.isEqual("9")){
+                fudu = 40;
+            } else if (ssssss.isEqual("10")){
+                fudu = 48;
+            } else if (ssssss.isEqual("11")){
+                fudu = 50;
+            } else if (ssssss.isEqual("12")){
+                fudu = 58;
+            } else if (ssssss.isEqual("13")){
+                fudu = 60;
+            } else if (ssssss.isEqual("13")){
+                fudu = 68;
+            } else if (ssssss.isEqual("14")){
+                fudu = 70;
+            } else if (ssssss.isEqual("15")){
+                fudu = 78;
+            } else if (ssssss.isEqual("16")){
+                fudu = 80;
+            }
+            print("幅度变化值  "+fudu)
+            
             data = Data(bytes: [0x01,0xfe,0x00,0x00,0x23,0x33,0x10,0x00,fudu,0x00,0x00,0x00,0x00,0x00,0x00,0x00])
             let characteristics = self.services[1].characteristics![0]
             
@@ -378,8 +421,10 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
     
     //MARK:写入数据
     func sliderValueChanged() {
-        
-        
+//        let tempNum:Float = self.fuduSlider.maximumValue / Float(16)
+//        self.fuduSlider.value = Float(Int(self.fuduSlider.value / tempNum)) * tempNum
+//        var fudu = UInt8(self.fuduSlider.value)
+    
         if isFristLaunch == true {
             
             let alrtView = UIAlertView(title: "提示", message: "请先点击开始按钮", delegate: nil, cancelButtonTitle: "确定")
@@ -402,6 +447,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         self.stallsLabel.text = "\(Int(self.fuduSlider.value / stallsNum))"
         self.stallsLabel.frame = CGRect(x: thumbRect.origin.x, y: self.stallsLabel.frame.origin.y, width: self.stallsLabel.frame.width, height: self.stallsLabel.frame.height)
         
+        
+        
         if self.deviceStatus > 0 {
             
             
@@ -420,13 +467,53 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             }
             
             var data = Data()
-            let fudu = UInt8(self.fuduSlider.value)
+            var fudu = UInt8(self.fuduSlider.value)
+            
+            let ssssss:String = "\(Int(self.fuduSlider.value / stallsNum))"
+            print("档位值  "+ssssss)
+            if (ssssss.isEqual("1")){
+                fudu = 00;
+            } else if (ssssss.isEqual("2")){
+                fudu = 08;
+            } else if (ssssss.isEqual("3")){
+                fudu = 10;
+            } else if (ssssss.isEqual("4")){
+                fudu = 18;
+            } else if (ssssss.isEqual("5")){
+                fudu = 20;
+            } else if (ssssss.isEqual("6")){
+                fudu = 28;
+            } else if (ssssss.isEqual("7")){
+                fudu = 30;
+            } else if (ssssss.isEqual("8")){
+                fudu = 38;
+            } else if (ssssss.isEqual("9")){
+                fudu = 40;
+            } else if (ssssss.isEqual("10")){
+                fudu = 48;
+            } else if (ssssss.isEqual("11")){
+                fudu = 50;
+            } else if (ssssss.isEqual("12")){
+                fudu = 58;
+            } else if (ssssss.isEqual("13")){
+                fudu = 60;
+            } else if (ssssss.isEqual("13")){
+                fudu = 68;
+            } else if (ssssss.isEqual("14")){
+                fudu = 70;
+            } else if (ssssss.isEqual("15")){
+                fudu = 78;
+            } else if (ssssss.isEqual("16")){
+                fudu = 80;
+            }
+            print("幅度变化值  "+fudu)
             data = Data(bytes: [0x01,0xfe,0x00,0x00,0x23,status,0x10,0x00,fudu,0x00,0x00,0x00,0x00,0x00,0x00,0x00])
             let characteristics = self.services[1].characteristics![0]
             
             self.currPeripheral.writeValue(data as Data, for: characteristics, type: CBCharacteristicWriteType.withoutResponse)
             
         }
+ 
     }
     
     //MARK:减幅
