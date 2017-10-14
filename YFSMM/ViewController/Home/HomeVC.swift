@@ -132,16 +132,16 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         self.setBabyDelegate()
 
         
-       // self.startAnimation()
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-//
-//        } catch {
-//
-//        }
+        self.startAnimation()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+
+        } catch {
+
+        }
         
         let path1 = Bundle.main.path(forResource: "m1", ofType: "mp3")
         let path2 = Bundle.main.path(forResource: "m2", ofType: "mp3")
@@ -691,10 +691,9 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
 //            daojishiLabel.text = "\(xiaoshi)\(fenzhong):\(miao)"
             daojishiLabel.text = "\(xiaoshi)\(fenzhong):"+bb
             
-        }else if fenzhong > 10{
+        }else if fenzhong >= 10{
             
             bubble.start_bubbleAnimation();
-
             self.startLabel.text = "运行中"
             daojishiLabel.isHidden = false
             var bb:String = "\(miao)"
@@ -705,13 +704,11 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             daojishiLabel.text = "\(fenzhong):"+bb
         }
         else{
-           
-
             self.startLabel.text = "开始"
             daojishiLabel.isHidden = true
             
         }
-        
+        print("分钟：-----"+"\(fenzhong)");
 //        print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
         print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时:"+daojishi)
         self.setShuiAndYouProgress()

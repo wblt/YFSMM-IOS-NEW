@@ -608,11 +608,12 @@
 				TargetAttributes = {
 					E16758D91EF4128400C701C4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = HR6HGC9SU2;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Keychain = {
 								enabled = 1;
@@ -937,7 +938,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -949,7 +950,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alvin.YFSMM2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "80fb0b78-8643-4594-b49e-dd00a0e18df4";
 				PROVISIONING_PROFILE_SPECIFIER = mianmo_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "YFSMM/YFSMM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -968,7 +969,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -980,8 +981,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alvin.YFSMM2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = mianmo_dev;
+				PROVISIONING_PROFILE = "e88c04cc-89e3-4b66-ac68-cbb61cd63a42";
+				PROVISIONING_PROFILE_SPECIFIER = YFSMM2_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "YFSMM/YFSMM-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

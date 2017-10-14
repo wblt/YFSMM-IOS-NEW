@@ -18,8 +18,8 @@ target 'YFSMM' do
   pod 'MJRefresh'                 #上下拉刷新
   #pod 'BabyBluetooth','~> 0.7.0'  #蓝牙
   #pod 'PNChart'
-  pod 'Charts'
-  pod 'CryptoSwift'
+  pod 'Charts','3.0.2'
+  pod 'CryptoSwift','0.6.9'
   pod 'LKDBHelper'
   pod 'YYCache'
   pod 'BFEmptyDataSet'
