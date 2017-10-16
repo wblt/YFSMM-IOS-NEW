@@ -730,6 +730,7 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
                 playButton.setTitle("打开音乐", for: UIControlState.normal)
             }
         } else {
+            playButton.setTitle("关闭音乐", for: UIControlState.normal)
             playButton.isHidden = true;
         }
         
