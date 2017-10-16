@@ -79,7 +79,9 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
     var audioPlayer: AVAudioPlayer?
     var musicArr:Array<String> = []
     var musicStatus:UInt8 = 0;
+    var switchOn:Bool = false;
     
+    @IBOutlet weak var playButton: UIButton!
 
     fileprivate lazy var searchView: SearchDeviceView = {
         let popView = Bundle.main.loadNibNamed("SearchDeviceView", owner: nil, options: nil)?.first as! SearchDeviceView
@@ -661,8 +663,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             //开始使用面膜机
         else if daojishi == "011:59"{
             
+        
             bubble.start_bubbleAnimation();
-            
             let date = (Date.currentTime().substringToIndex(10)!.replacingOccurrences(of: "-", with: "") as NSString).integerValue
             let model = ChartModel()
             model.oil1 = self.youfenValue
@@ -678,6 +680,9 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
              model.saveToDB()
         }else if daojishi != "00:00" && fenzhong < 10  {
             
+        
+
+            
             bubble.start_bubbleAnimation();
 
             daojishiLabel.isHidden = false
@@ -692,6 +697,8 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             
         }else if fenzhong >= 10{
             
+        
+            
             bubble.start_bubbleAnimation();
             self.startLabel.text = "运行中"
             daojishiLabel.isHidden = false
@@ -705,12 +712,27 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         else{
             self.startLabel.text = "开始"
             daojishiLabel.isHidden = true
-            
+        
         }
         print("分钟：-----"+"\(fenzhong)");
 //        print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时：\(xiaoshi)\(fenzhong):\(miao)")
         print("设备状态：\(status) 水份：\(shuifen) 油份：\(youfen) 倒计时:"+daojishi)
         self.setShuiAndYouProgress()
+        
+        let userDefault = UserDefaults.standard
+        let swithdd:Bool = userDefault.bool(forKey: "switchOn")
+        let sds:String = self.startLabel.text!;
+        if sds.isEqual("运行中") {
+            playButton.isHidden = false;
+            if swithdd == false {
+                playButton.setTitle("关闭音乐", for: UIControlState.normal)
+            } else {
+                playButton.setTitle("打开音乐", for: UIControlState.normal)
+            }
+        } else {
+            playButton.isHidden = true;
+        }
+        
     
     }
     
@@ -719,16 +741,27 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         sender.isSelected = !sender.isSelected;
         if sender.isSelected {
             print("点击选择-------")
+            switchOn = true;
+            audioPlayer?.pause()
+            playButton.setTitle("打开音乐", for: UIControlState.normal)
         } else {
             print("点击未选择-------")
+            switchOn = false;
+            
+            audioPlayer?.play()
+            playButton.setTitle("关闭音乐", for: UIControlState.normal)
         }
-        
-        
+        let userDefault = UserDefaults.standard
+        userDefault.set(switchOn, forKey: "switchOn")
+        userDefault.synchronize()
     }
-    
-    
+
     // 播放音乐
     func playMusic(status:Int) {
+        let userDefault = UserDefaults.standard
+        let swithdd:Bool = userDefault.bool(forKey: "switchOn")
+        switchOn = swithdd;
+        
         switch status {
         case 1:
             print("!!!!!!!!!--1----")
@@ -739,12 +772,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             } catch {
                 audioPlayer = nil
             }
-            audioPlayer?.play()
-    
+            if switchOn == false {
+                audioPlayer?.play()
+            }
             break
         case 2:
             print("!!!!!!!!!--2----")
-            
             let pathURL:URL = URL(fileURLWithPath: musicArr[1])
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
@@ -752,11 +785,12 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             } catch {
                 audioPlayer = nil
             }
-            audioPlayer?.play()
+            if switchOn == false {
+                audioPlayer?.play()
+            }
             break
         case 3:
             print("!!!!!!!!!--3----")
-            
             let pathURL:URL = URL(fileURLWithPath: musicArr[2])
             do {
                 try audioPlayer = AVAudioPlayer(contentsOf: pathURL)
@@ -764,10 +798,14 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
             } catch {
                 audioPlayer = nil
             }
-            audioPlayer?.play()
+            if switchOn == false {
+                audioPlayer?.play()
+            }
             break
         default: break
         }
+        
+        
         
     }
     

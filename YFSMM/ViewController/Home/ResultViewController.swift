@@ -35,7 +35,7 @@ class ResultViewController: BaseVC {
         let water:UInt32 = (arc4random_uniform(max - min) + min)
         waterup.text = "\(water)"
         
-        let oi:UInt32 = (arc4random_uniform(max - min) + min)
+        let oi:UInt32 = (arc4random_uniform(9 - min) + min)
         
         oile.text = "\(oi)";
         
