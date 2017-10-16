@@ -81,7 +81,6 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
     var musicStatus:UInt8 = 0;
     
 
-    
     fileprivate lazy var searchView: SearchDeviceView = {
         let popView = Bundle.main.loadNibNamed("SearchDeviceView", owner: nil, options: nil)?.first as! SearchDeviceView
         popView.delegate = self
@@ -714,6 +713,19 @@ class HomeVC: BaseVC,JHCustomMenuDelegate,SearchDeviceViewDelegate,AVAudioPlayer
         self.setShuiAndYouProgress()
     
     }
+    
+    
+    @IBAction func playAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected;
+        if sender.isSelected {
+            print("点击选择-------")
+        } else {
+            print("点击未选择-------")
+        }
+        
+        
+    }
+    
     
     // 播放音乐
     func playMusic(status:Int) {
