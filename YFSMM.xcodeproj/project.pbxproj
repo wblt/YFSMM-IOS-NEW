@@ -936,7 +936,7 @@
 				CODE_SIGN_ENTITLEMENTS = YFSMM/YFSMM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Qing Wu (KP39D8A33J)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
@@ -967,7 +967,7 @@
 				CODE_SIGN_ENTITLEMENTS = YFSMM/YFSMM.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Welcare (Shenzhen) Technologies Co., Ltd. (HR6HGC9SU2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = HR6HGC9SU2;
 				ENABLE_BITCODE = NO;
